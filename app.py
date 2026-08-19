@@ -2672,6 +2672,11 @@ def quotation_pdf(quotation_id):
 # ============================================================
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
 @app.route("/reports")
 def reports():
 

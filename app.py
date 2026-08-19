@@ -726,19 +726,6 @@ def index():
 
 
 # ============================================================
-# DASHBOARD ALIAS
-# ============================================================
-
-
-@app.route("/dashboard")
-def dashboard():
-
-    return redirect(
-        url_for("index")
-    )
-
-
-# ============================================================
 # HEALTH CHECK
 # ============================================================
 
@@ -2674,7 +2661,77 @@ def quotation_pdf(quotation_id):
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+
+    products = Product.query.all()
+    customers = Customer.query.all()
+    sales = Sale.query.all()
+    quotations = Quotation.query.all()
+    expenses = Expense.query.all()
+
+    total_sales = sum(
+        (money(s.total_amount) for s in sales),
+        Decimal("0.00")
+    )
+
+    total_profit = sum(
+        (money(s.profit) for s in sales),
+        Decimal("0.00")
+    )
+
+    total_expenses = sum(
+        (money(e.amount) for e in expenses),
+        Decimal("0.00")
+    )
+
+    stock_value = sum(
+        (
+            money(p.stock_quantity)
+            * money(p.purchase_price)
+            for p in products
+        ),
+        Decimal("0.00")
+    )
+
+    low_stock = [
+        p for p in products
+        if money(p.stock_quantity)
+        <= money(p.minimum_stock)
+    ]
+
+    return render_template(
+        "dashboard.html",
+
+        products=products,
+
+        customers=customers,
+
+        sales=sales,
+
+        quotations=quotations,
+
+        expenses=expenses,
+
+        total_sales=total_sales,
+
+        total_profit=total_profit,
+
+        total_expenses=total_expenses,
+
+        stock_value=stock_value,
+
+        low_stock=low_stock,
+
+        customers_count=len(customers),
+
+        products_count=len(products),
+
+        sales_count=len(sales),
+
+        quotation_count=len(quotations),
+
+        expenses_count=len(expenses)
+    )
+
 
 
 @app.route("/reports")

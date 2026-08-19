@@ -1,0 +1,5773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Business Dashboard | Davanso Solutions Ltd</title>
+
+<meta name="description"
+      content="Davanso Solutions Ltd stock, sales, profit, customers, quotations and business management dashboard.">
+
+<style>
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2b8ef1;
+    --primary-dark: #176fc5;
+    --secondary: #8b5e3c;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #d97706;
+    --dark: #172033;
+    --text: #374151;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f5f7fb;
+    --white: #ffffff;
+    --shadow: 0 8px 25px rgba(0,0,0,.07);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    background: linear-gradient(135deg, var(--primary), #176fc5);
+    color: white;
+    padding: 22px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+.header-content {
+    max-width: 1450px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.company {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.company-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: white;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.company h1 {
+    font-size: 21px;
+}
+
+.company p {
+    font-size: 13px;
+    opacity: .9;
+    margin-top: 4px;
+}
+
+.header-date {
+    text-align: right;
+    font-size: 13px;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 96px;
+    z-index: 999;
+}
+
+.nav-inner {
+    max-width: 1450px;
+    margin: auto;
+    padding: 0 25px;
+    display: flex;
+    overflow-x: auto;
+}
+
+.nav button {
+    border: none;
+    background: transparent;
+    padding: 16px 18px;
+    cursor: pointer;
+    color: var(--text);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.nav button:hover,
+.nav button.active {
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container {
+    max-width: 1450px;
+    margin: auto;
+    padding: 30px 25px 60px;
+}
+
+.section {
+    margin-bottom: 35px;
+    scroll-margin-top: 140px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+    color: var(--dark);
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary);
+}
+
+.stat-card.green {
+    border-left-color: var(--success);
+}
+
+.stat-card.red {
+    border-left-color: var(--danger);
+}
+
+.stat-card.brown {
+    border-left-color: var(--secondary);
+}
+
+.stat-card.orange {
+    border-left-color: var(--warning);
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    color: var(--dark);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.card-header h3 {
+    color: var(--dark);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: white;
+}
+
+.btn-light {
+    background: #eef2f7;
+    color: var(--dark);
+}
+
+.btn-sm {
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* =========================================================
+   FORMS
+========================================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th {
+    background: #f1f5f9;
+    color: var(--dark);
+    text-align: left;
+    font-size: 13px;
+    padding: 13px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+tr:hover td {
+    background: #fafcff;
+}
+
+.product-name {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.money {
+    font-weight: 700;
+}
+
+.profit-positive {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.profit-negative {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* =========================================================
+   RECORDS
+========================================================= */
+
+.record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.record:last-child {
+    border-bottom: none;
+}
+
+.record h4 {
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.record p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.record-value {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+}
+
+.alert-name {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.alert-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+    padding: 35px 15px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.empty-state-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.empty-state strong {
+    display: block;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 3000;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: var(--dark);
+}
+
+.close {
+    border: none;
+    background: #f1f5f9;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* =========================================================
+   QUOTATION
+========================================================= */
+
+.quote-items {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.quote-total {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.quote-total-box {
+    width: 300px;
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.quote-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+.quote-row.total {
+    border-top: 2px solid var(--dark);
+    margin-top: 8px;
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+.print-area {
+    background: white;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.footer p {
+    font-size: 13px;
+    opacity: .8;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:750px) {
+    .header {
+        position: relative;
+    }
+
+    .nav {
+        position: relative;
+        top: 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-date {
+        text-align: left;
+    }
+
+    .stats-grid,
+    .two-column,
+    .three-column,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 20px 12px 40px;
+    }
+}
+
+/* =========================================================
+   PRINT QUOTATION / RECEIPT
+========================================================= */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    #printDocument,
+    #printDocument * {
+        visibility: visible;
+    }
+
+    #printDocument {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 25px;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+    <div class="header-content">
+
+        <div class="company">
+
+            <div class="company-logo">
+                DS
+            </div>
+
+            <div>
+                <h1>Davanso Solutions Ltd</h1>
+                <p>Business Management & Inventory Dashboard</p>
+            </div>
+
+        </div>
+
+        <div class="header-date">
+            <strong id="currentDate"></strong>
+            <br>
+            <span id="currentTime"></span>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="nav">
+
+    <div class="nav-inner">
+
+        <button onclick="scrollToSection('dashboardSection')">
+            Dashboard
+        </button>
+
+        <button onclick="scrollToSection('inventorySection')">
+            Inventory
+        </button>
+
+        <button onclick="scrollToSection('salesSection')">
+            Sales
+        </button>
+
+        <button onclick="scrollToSection('customersSection')">
+            Customers
+        </button>
+
+        <button onclick="scrollToSection('quotationSection')">
+            Quotations
+        </button>
+
+        <button onclick="scrollToSection('expensesSection')">
+            Expenses
+        </button>
+
+        <button onclick="scrollToSection('reportsSection')">
+            Reports
+        </button>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section id="dashboardSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Business Dashboard</h2>
+
+        <p>
+            Overview of your business performance and activities.
+        </p>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Today's Sales
+            </div>
+
+            <div class="stat-value" id="todaySales">
+                KSh 0.00
+            </div>
+
+        </div>
+
+
+        <div class="stat-card green">
+
+            <div class="stat-label">
+                Today's Profit
+            </div>
+
+            <div class="stat-value" id="todayProfit">
+                KSh 0.00
+            </div>
+
+        </div>
+
+
+        <div class="stat-card red">
+
+            <div class="stat-label">
+                Total Expenses
+            </div>
+
+            <div class="stat-value" id="totalExpenses">
+                KSh 0.00
+            </div>
+
+        </div>
+
+
+        <div class="stat-card brown">
+
+            <div class="stat-label">
+                Stock Value
+            </div>
+
+            <div class="stat-value" id="stockValue">
+                KSh 0.00
+            </div>
+
+        </div>
+
+
+        <div class="stat-card orange">
+
+            <div class="stat-label">
+                Customers
+            </div>
+
+            <div class="stat-value" id="customerCount">
+                0
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="two-column">
+
+
+        <!-- LOW STOCK -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3>
+                    Low Stock Alerts
+                </h3>
+
+                <span
+                    id="lowStockBadge"
+                    class="badge badge-warning">
+                    0 items
+                </span>
+
+            </div>
+
+            <div id="lowStockList"></div>
+
+        </div>
+
+
+        <!-- REORDER -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h3>
+                    Re-order Suggestions
+                </h3>
+
+                <span
+                    id="reorderBadge"
+                    class="badge badge-blue">
+                    0 items
+                </span>
+
+            </div>
+
+            <div id="reorderList"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENT SALES -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Recent Sales
+            </h3>
+
+            <button
+                class="btn btn-light btn-sm"
+                onclick="scrollToSales()">
+                View All Sales
+            </button>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="recentSalesBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     INVENTORY
+========================================================= -->
+
+<section id="inventorySection" class="section">
+
+    <div class="section-title">
+
+        <h2>Inventory Management</h2>
+
+        <p>
+            Manage your products, quantities, prices and stock levels.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Stock Records
+            </h3>
+
+            <button
+                class="btn btn-primary"
+                onclick="openModal('stockModal')">
+                + Add Stock
+            </button>
+
+        </div>
+
+
+        <div class="search-bar">
+
+            <input
+                type="text"
+                id="stockSearch"
+                placeholder="Search product..."
+                oninput="renderInventory()">
+
+            <select
+                id="stockFilter"
+                onchange="renderInventory()">
+
+                <option value="all">
+                    All Stock
+                </option>
+
+                <option value="available">
+                    Available
+                </option>
+
+                <option value="low">
+                    Low Stock
+                </option>
+
+                <option value="out">
+                    Out of Stock
+                </option>
+
+            </select>
+
+        </div>
+
+        <br>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Sold</th>
+                        <th>Remaining</th>
+                        <th>Purchase Price</th>
+                        <th>Selling Price</th>
+                        <th>Stock Value</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="inventoryBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SALES
+========================================================= -->
+
+<section id="salesSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Sales Management</h2>
+
+        <p>
+            Record sales and automatically calculate profit.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Record Sale
+            </h3>
+
+            <button
+                class="btn btn-primary"
+                onclick="openModal('saleModal')">
+                + Record Sale
+            </button>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Purchase Cost</th>
+                        <th>Total Sale</th>
+                        <th>Profit</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="salesBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CUSTOMERS
+========================================================= -->
+
+<section id="customersSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Customers</h2>
+
+        <p>
+            Manage customer and project information.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Customer Records
+            </h3>
+
+            <button
+                class="btn btn-primary"
+                onclick="openModal('customerModal')">
+                + Add Customer
+            </button>
+
+        </div>
+
+        <div id="customerList"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTATIONS
+========================================================= -->
+
+<section id="quotationSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Quotations</h2>
+
+        <p>
+            Create, save, print and download customer quotations.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Quotation Management
+            </h3>
+
+            <button
+                class="btn btn-primary"
+                onclick="openModal('quotationModal')">
+                + Create Quotation
+            </button>
+
+        </div>
+
+
+        <div id="quotationList"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPENSES
+========================================================= -->
+
+<section id="expensesSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Expenses</h2>
+
+        <p>
+            Track business expenses and operating costs.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Expense Records
+            </h3>
+
+            <button
+                class="btn btn-danger"
+                onclick="openModal('expenseModal')">
+                + Add Expense
+            </button>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="expensesBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REPORTS
+========================================================= -->
+
+<section id="reportsSection" class="section">
+
+    <div class="section-title">
+
+        <h2>Business Reports</h2>
+
+        <p>
+            Analyze sales, expenses, profit and stock movement.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>
+                Report Summary
+            </h3>
+
+            <div class="actions">
+
+                <select
+                    id="reportPeriod"
+                    onchange="generateReport()"
+                    class="btn btn-light">
+
+                    <option value="all">
+                        All Time
+                    </option>
+
+                    <option value="today">
+                        Today
+                    </option>
+
+                    <option value="month">
+                        This Month
+                    </option>
+
+                </select>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="printReport()">
+                    Print Report
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="three-column">
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Report Sales
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="reportSales">
+                    KSh 0.00
+                </div>
+
+            </div>
+
+
+            <div class="stat-card red">
+
+                <div class="stat-label">
+                    Report Expenses
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="reportExpenses">
+                    KSh 0.00
+                </div>
+
+            </div>
+
+
+            <div class="stat-card green">
+
+                <div class="stat-label">
+                    Net Profit
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="reportProfit">
+                    KSh 0.00
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <p>
+            <strong>
+                Stock Movement:
+            </strong>
+
+            <span id="reportStockMovement">
+                0
+            </span>
+            units
+        </p>
+
+
+        <br>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="reportBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <p>
+        © <span id="footerYear"></span>
+        Davanso Solutions Ltd.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     STOCK MODAL
+========================================================= -->
+
+<div id="stockModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Add Stock
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('stockModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="addStock(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Product Name
+                    </label>
+
+                    <input
+                        id="stockName"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <input
+                        id="stockCategory"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stockQuantity"
+                        min="1"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Reorder Level
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stockReorder"
+                        min="0"
+                        value="5"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Purchase Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stockPurchase"
+                        min="0"
+                        step="0.01"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Selling Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stockSelling"
+                        min="0"
+                        step="0.01"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                type="submit">
+                Save Stock
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SALE MODAL
+========================================================= -->
+
+<div id="saleModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Record Sale
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('saleModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="addSale(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="saleDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer
+                    </label>
+
+                    <input
+                        id="saleCustomer"
+                        placeholder="Walk-in Customer"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Product
+                    </label>
+
+                    <select
+                        id="saleItem"
+                        onchange="updateSalePrice()"
+                        required>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="saleQuantity"
+                        min="1"
+                        value="1"
+                        onchange="updateSalePrice()"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Selling Price / Unit
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salePrice"
+                        step="0.01"
+                        min="0"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-success"
+                type="submit">
+                Save Sale
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CUSTOMER MODAL
+========================================================= -->
+
+<div id="customerModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Add Customer
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('customerModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="addCustomer(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Customer Name
+                    </label>
+
+                    <input
+                        id="customerName"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input
+                        id="customerPhone"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        id="customerLocation"
+                        placeholder="Kenya">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Project
+                    </label>
+
+                    <input
+                        id="customerProject">
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                type="submit">
+                Save Customer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EXPENSE MODAL
+========================================================= -->
+
+<div id="expenseModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Add Expense
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('expenseModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="addExpense(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <input
+                        id="expenseDescription"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        min="0"
+                        step="0.01"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select id="expenseCategory">
+
+                        <option>
+                            Transport
+                        </option>
+
+                        <option>
+                            Rent
+                        </option>
+
+                        <option>
+                            Electricity
+                        </option>
+
+                        <option>
+                            Salaries
+                        </option>
+
+                        <option>
+                            Supplies
+                        </option>
+
+                        <option>
+                            Marketing
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="expenseDate"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="btn btn-danger"
+                type="submit">
+                Save Expense
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     QUOTATION MODAL
+========================================================= -->
+
+<div id="quotationModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Create Quotation
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal('quotationModal')">
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="createQuotation(event)">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Quotation Number
+                    </label>
+
+                    <input
+                        id="quotationNumber"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="quotationDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer Name
+                    </label>
+
+                    <input
+                        id="quotationCustomer"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer Phone
+                    </label>
+
+                    <input
+                        id="quotationPhone">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Project Title
+                    </label>
+
+                    <input
+                        id="quotationProject">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        id="quotationLocation">
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <h3>
+                Quotation Items
+            </h3>
+
+            <br>
+
+
+            <div class="quote-items">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Description
+                            </th>
+
+                            <th>
+                                Quantity
+                            </th>
+
+                            <th>
+                                Unit Price
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="quotationItemsBody"></tbody>
+
+                </table>
+
+            </div>
+
+
+            <br>
+
+            <button
+                type="button"
+                class="btn btn-light"
+                onclick="addQuotationItem()">
+                + Add Item
+            </button>
+
+
+            <div class="quote-total">
+
+                <div class="quote-total-box">
+
+                    <div class="quote-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="quotationSubtotal">
+                            KSh 0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quote-row">
+
+                        <span>
+                            VAT
+                        </span>
+
+                        <strong id="quotationVAT">
+                            KSh 0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quote-row total">
+
+                        <span>
+                            Grand Total
+                        </span>
+
+                        <strong id="quotationGrandTotal">
+                            KSh 0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <div class="actions">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Save Quotation
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="saveQuotationAndPrint()">
+                    Save & Print
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PRINT DOCUMENT
+========================================================= -->
+
+<div id="printDocument"
+     style="display:none;">
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let stock =
+    JSON.parse(
+        localStorage.getItem("davanso_stock") || "[]"
+    );
+
+let sales =
+    JSON.parse(
+        localStorage.getItem("davanso_sales") || "[]"
+    );
+
+let expenses =
+    JSON.parse(
+        localStorage.getItem("davanso_expenses") || "[]"
+    );
+
+let customers =
+    JSON.parse(
+        localStorage.getItem("davanso_customers") || "[]"
+    );
+
+let quotationItems = [];
+
+
+/* =========================================================
+   SAVE DATA
+========================================================= */
+
+function saveData() {
+
+    localStorage.setItem(
+        "davanso_stock",
+        JSON.stringify(stock)
+    );
+
+    localStorage.setItem(
+        "davanso_sales",
+        JSON.stringify(sales)
+    );
+
+    localStorage.setItem(
+        "davanso_expenses",
+        JSON.stringify(expenses)
+    );
+
+    localStorage.setItem(
+        "davanso_customers",
+        JSON.stringify(customers)
+    );
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function today() {
+
+    const d = new Date();
+
+    const year =
+        d.getFullYear();
+
+    const month =
+        String(d.getMonth() + 1)
+            .padStart(2, "0");
+
+    const day =
+        String(d.getDate())
+            .padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+
+/* =========================================================
+   MONEY
+========================================================= */
+
+function money(value) {
+
+    return new Intl.NumberFormat(
+        "en-KE",
+        {
+            style: "currency",
+            currency: "KES",
+            minimumFractionDigits: 2
+        }
+    ).format(
+        Number(value || 0)
+    );
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+function openModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+}
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.remove("active");
+
+}
+
+
+/* Close when clicking outside */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target.classList.contains("modal")
+        ) {
+
+            event.target.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   STOCK
+========================================================= */
+
+function addStock(event) {
+
+    event.preventDefault();
+
+    const name =
+        document
+            .getElementById("stockName")
+            .value
+            .trim();
+
+    const category =
+        document
+            .getElementById("stockCategory")
+            .value
+            .trim();
+
+    const quantity =
+        Number(
+            document
+                .getElementById("stockQuantity")
+                .value
+        );
+
+    const reorderLevel =
+        Number(
+            document
+                .getElementById("stockReorder")
+                .value
+        );
+
+    const purchasePrice =
+        Number(
+            document
+                .getElementById("stockPurchase")
+                .value
+        );
+
+    const sellingPrice =
+        Number(
+            document
+                .getElementById("stockSelling")
+                .value
+        );
+
+
+    if (quantity <= 0) {
+
+        alert("Quantity must be greater than zero.");
+
+        return;
+
+    }
+
+
+    stock.push({
+
+        id: Date.now(),
+
+        name,
+
+        category,
+
+        quantity,
+
+        sold: 0,
+
+        reorderLevel,
+
+        purchasePrice,
+
+        sellingPrice,
+
+        date: today()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    document
+        .getElementById("stockReorder")
+        .value = 5;
+
+    closeModal("stockModal");
+
+    refreshDashboard();
+
+    alert(
+        "Stock saved successfully."
+    );
+
+}
+
+
+/* =========================================================
+   SALE PRODUCTS
+========================================================= */
+
+function populateSaleItems() {
+
+    const select =
+        document
+            .getElementById("saleItem");
+
+    select.innerHTML =
+        `<option value="">Select product</option>`;
+
+
+    stock.forEach(
+        function(item) {
+
+            const remaining =
+                item.quantity - item.sold;
+
+            if (remaining > 0) {
+
+                select.innerHTML += `
+
+                    <option value="${item.id}">
+                        ${escapeHTML(item.name)}
+                        —
+                        ${money(item.sellingPrice)}
+                        (${remaining} available)
+                    </option>
+
+                `;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE SALE PRICE
+========================================================= */
+
+function updateSalePrice() {
+
+    const id =
+        Number(
+            document
+                .getElementById("saleItem")
+                .value
+        );
+
+    const item =
+        stock.find(
+            x => x.id === id
+        );
+
+
+    if (!item) {
+
+        document
+            .getElementById("salePrice")
+            .value = "";
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("salePrice")
+        .value =
+        item.sellingPrice;
+
+}
+
+
+/* =========================================================
+   ADD SALE
+========================================================= */
+
+function addSale(event) {
+
+    event.preventDefault();
+
+
+    const date =
+        document
+            .getElementById("saleDate")
+            .value || today();
+
+    const customer =
+        document
+            .getElementById("saleCustomer")
+            .value
+            .trim();
+
+    const productId =
+        Number(
+            document
+                .getElementById("saleItem")
+                .value
+        );
+
+    const quantity =
+        Number(
+            document
+                .getElementById("saleQuantity")
+                .value
+        );
+
+    const sellingPrice =
+        Number(
+            document
+                .getElementById("salePrice")
+                .value
+        );
+
+
+    const item =
+        stock.find(
+            x => x.id === productId
+        );
+
+
+    if (!item) {
+
+        alert(
+            "Please select a product."
+        );
+
+        return;
+
+    }
+
+
+    const remaining =
+        item.quantity - item.sold;
+
+
+    if (quantity <= 0) {
+
+        alert(
+            "Quantity must be greater than zero."
+        );
+
+        return;
+
+    }
+
+
+    if (quantity > remaining) {
+
+        alert(
+            `Only ${remaining} units of ${item.name} are available.`
+        );
+
+        return;
+
+    }
+
+
+    const purchaseCost =
+        item.purchasePrice *
+        quantity;
+
+    const total =
+        sellingPrice *
+        quantity;
+
+    const profit =
+        total -
+        purchaseCost;
+
+
+    item.sold += quantity;
+
+
+    sales.push({
+
+        id: Date.now(),
+
+        date,
+
+        customer,
+
+        item: item.name,
+
+        itemId: item.id,
+
+        quantity,
+
+        purchaseCost,
+
+        total,
+
+        profit,
+
+        sellingPrice
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    document
+        .getElementById("saleDate")
+        .value = today();
+
+    closeModal("saleModal");
+
+    refreshDashboard();
+
+    alert(
+        "Sale recorded successfully."
+    );
+
+}
+
+
+/* =========================================================
+   CUSTOMERS
+========================================================= */
+
+function addCustomer(event) {
+
+    event.preventDefault();
+
+
+    customers.push({
+
+        id: Date.now(),
+
+        name:
+            document
+                .getElementById("customerName")
+                .value
+                .trim(),
+
+        phone:
+            document
+                .getElementById("customerPhone")
+                .value
+                .trim(),
+
+        location:
+            document
+                .getElementById("customerLocation")
+                .value
+                .trim(),
+
+        project:
+            document
+                .getElementById("customerProject")
+                .value
+                .trim(),
+
+        date: today()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal("customerModal");
+
+    refreshDashboard();
+
+    alert(
+        "Customer saved successfully."
+    );
+
+}
+
+
+/* =========================================================
+   EXPENSES
+========================================================= */
+
+function addExpense(event) {
+
+    event.preventDefault();
+
+
+    expenses.push({
+
+        id: Date.now(),
+
+        description:
+            document
+                .getElementById("expenseDescription")
+                .value
+                .trim(),
+
+        amount:
+            Number(
+                document
+                    .getElementById("expenseAmount")
+                    .value
+            ),
+
+        category:
+            document
+                .getElementById("expenseCategory")
+                .value,
+
+        date:
+            document
+                .getElementById("expenseDate")
+                .value ||
+                today()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    document
+        .getElementById("expenseDate")
+        .value = today();
+
+    closeModal("expenseModal");
+
+    refreshDashboard();
+
+    alert(
+        "Expense saved successfully."
+    );
+
+}
+
+
+/* =========================================================
+   DELETE EXPENSE
+========================================================= */
+
+function deleteExpense(id) {
+
+    if (
+        !confirm(
+            "Delete this expense?"
+        )
+    ) {
+        return;
+    }
+
+
+    expenses =
+        expenses.filter(
+            expense =>
+                expense.id !== id
+        );
+
+
+    saveData();
+
+    refreshDashboard();
+
+}
+
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+function renderInventory() {
+
+    const tbody =
+        document
+            .getElementById("inventoryBody");
+
+
+    const search =
+        document
+            .getElementById("stockSearch")
+            .value
+            .toLowerCase();
+
+
+    const filter =
+        document
+            .getElementById("stockFilter")
+            .value;
+
+
+    tbody.innerHTML = "";
+
+
+    const visibleItems =
+        stock.filter(
+            function(item) {
+
+                const remaining =
+                    item.quantity -
+                    item.sold;
+
+
+                const matchesSearch =
+                    item.name
+                        .toLowerCase()
+                        .includes(search);
+
+
+                let matchesFilter = true;
+
+
+                if (filter === "low") {
+
+                    matchesFilter =
+                        remaining <=
+                        item.reorderLevel &&
+                        remaining > 0;
+
+                }
+
+
+                if (filter === "out") {
+
+                    matchesFilter =
+                        remaining <= 0;
+
+                }
+
+
+                if (filter === "available") {
+
+                    matchesFilter =
+                        remaining > 0;
+
+                }
+
+
+                return (
+                    matchesSearch &&
+                    matchesFilter
+                );
+
+            }
+        );
+
+
+    if (
+        visibleItems.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td colspan="9">
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            📦
+                        </div>
+
+                        <strong>
+                            No stock records found
+                        </strong>
+
+                        <p>
+                            Add stock to begin managing inventory.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    visibleItems.forEach(
+        function(item) {
+
+            const remaining =
+                item.quantity -
+                item.sold;
+
+
+            const stockValue =
+                Math.max(
+                    remaining,
+                    0
+                ) *
+                item.purchasePrice;
+
+
+            let status =
+                `<span class="badge badge-success">
+                    Available
+                </span>`;
+
+
+            if (remaining <= 0) {
+
+                status =
+                    `<span class="badge badge-danger">
+                        Out of Stock
+                    </span>`;
+
+            }
+            else if (
+                remaining <=
+                item.reorderLevel
+            ) {
+
+                status =
+                    `<span class="badge badge-warning">
+                        Low Stock
+                    </span>`;
+
+            }
+
+
+            tbody.innerHTML += `
+
+                <tr>
+
+                    <td class="product-name">
+                        ${escapeHTML(item.name)}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(item.category)}
+                    </td>
+
+                    <td>
+                        ${item.quantity}
+                    </td>
+
+                    <td>
+                        ${item.sold}
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${remaining}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${money(item.purchasePrice)}
+                    </td>
+
+                    <td>
+                        ${money(item.sellingPrice)}
+                    </td>
+
+                    <td class="money">
+                        ${money(stockValue)}
+                    </td>
+
+                    <td>
+                        ${status}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOW STOCK
+========================================================= */
+
+function renderAlerts() {
+
+    const lowList =
+        document
+            .getElementById("lowStockList");
+
+
+    const reorderList =
+        document
+            .getElementById("reorderList");
+
+
+    lowList.innerHTML = "";
+
+    reorderList.innerHTML = "";
+
+
+    const lowStock =
+        stock.filter(
+            item => {
+
+                const remaining =
+                    item.quantity -
+                    item.sold;
+
+                return (
+                    remaining <=
+                    item.reorderLevel
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("lowStockBadge")
+        .textContent =
+        `${lowStock.length} items`;
+
+
+    document
+        .getElementById("reorderBadge")
+        .textContent =
+        `${lowStock.length} items`;
+
+
+    if (
+        lowStock.length === 0
+    ) {
+
+        lowList.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    ✅
+                </div>
+
+                <strong>
+                    Stock levels are healthy
+                </strong>
+
+                <p>
+                    No items require immediate attention.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+    else {
+
+        lowStock.forEach(
+            function(item) {
+
+                const remaining =
+                    item.quantity -
+                    item.sold;
+
+
+                lowList.innerHTML += `
+
+                    <div class="alert-item">
+
+                        <div>
+
+                            <div class="alert-name">
+                                ${escapeHTML(item.name)}
+                            </div>
+
+                            <div class="alert-sub">
+                                ${escapeHTML(item.category)}
+                            </div>
+
+                        </div>
+
+                        <span class="badge ${
+                            remaining <= 0
+                                ? "badge-danger"
+                                : "badge-warning"
+                        }">
+
+                            ${
+                                remaining <= 0
+                                    ? "OUT OF STOCK"
+                                    : `${remaining} remaining`
+                            }
+
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+
+    if (
+        lowStock.length === 0
+    ) {
+
+        reorderList.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    📦
+                </div>
+
+                <strong>
+                    No re-orders required
+                </strong>
+
+                <p>
+                    Your current stock is above re-order levels.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+    else {
+
+        lowStock.forEach(
+            function(item) {
+
+                const remaining =
+                    item.quantity -
+                    item.sold;
+
+
+                const suggested =
+                    Math.max(
+                        item.reorderLevel * 2 -
+                        remaining,
+                        1
+                    );
+
+
+                reorderList.innerHTML += `
+
+                    <div class="alert-item">
+
+                        <div>
+
+                            <div class="alert-name">
+                                ${escapeHTML(item.name)}
+                            </div>
+
+                            <div class="alert-sub">
+                                Suggested order: ${suggested}
+                            </div>
+
+                        </div>
+
+                        <span class="badge badge-blue">
+                            Re-order
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RECENT SALES
+========================================================= */
+
+function renderRecentSales() {
+
+    const tbody =
+        document
+            .getElementById("recentSalesBody");
+
+
+    tbody.innerHTML = "";
+
+
+    const recent =
+        [...sales]
+            .sort(
+                (a,b) =>
+                    new Date(b.date) -
+                    new Date(a.date)
+            )
+            .slice(0,7);
+
+
+    if (
+        recent.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td colspan="4">
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            🛒
+                        </div>
+
+                        <strong>
+                            No sales yet
+                        </strong>
+
+                        <p>
+                            Record your first sale.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    recent.forEach(
+        function(sale) {
+
+            tbody.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        ${sale.date}
+                    </td>
+
+                    <td class="product-name">
+                        ${escapeHTML(sale.item)}
+                    </td>
+
+                    <td>
+                        ${sale.quantity}
+                    </td>
+
+                    <td class="money">
+                        ${money(sale.total)}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SALES TABLE
+========================================================= */
+
+function renderSales() {
+
+    const tbody =
+        document
+            .getElementById("salesBody");
+
+
+    tbody.innerHTML = "";
+
+
+    if (
+        sales.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td colspan="7">
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            🛒
+                        </div>
+
+                        <strong>
+                            No sales recorded
+                        </strong>
+
+                        <p>
+                            Sales will appear here after recording them.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    [...sales]
+        .sort(
+            (a,b) =>
+                new Date(b.date) -
+                new Date(a.date)
+        )
+        .forEach(
+            function(sale) {
+
+                tbody.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${sale.date}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(sale.customer)}
+                        </td>
+
+                        <td class="product-name">
+                            ${escapeHTML(sale.item)}
+                        </td>
+
+                        <td>
+                            ${sale.quantity}
+                        </td>
+
+                        <td>
+                            ${money(sale.purchaseCost)}
+                        </td>
+
+                        <td>
+                            ${money(sale.total)}
+                        </td>
+
+                        <td class="${
+                            sale.profit >= 0
+                                ? "profit-positive"
+                                : "profit-negative"
+                        }">
+
+                            ${money(sale.profit)}
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   CUSTOMERS
+========================================================= */
+
+function renderCustomers() {
+
+    const container =
+        document
+            .getElementById("customerList");
+
+
+    container.innerHTML = "";
+
+
+    const recent =
+        [...customers]
+            .reverse()
+            .slice(0,10);
+
+
+    if (
+        recent.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    👥
+                </div>
+
+                <strong>
+                    No customers yet
+                </strong>
+
+                <p>
+                    Add customer records to your system.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    recent.forEach(
+        function(customer) {
+
+            container.innerHTML += `
+
+                <div class="record">
+
+                    <div>
+
+                        <h4>
+                            ${escapeHTML(customer.name)}
+                        </h4>
+
+                        <p>
+                            ${escapeHTML(customer.phone)}
+                        </p>
+
+                        <p>
+                            ${escapeHTML(customer.project)}
+                        </p>
+
+                    </div>
+
+                    <div class="record-value">
+
+                        <strong>
+                            ${escapeHTML(
+                                customer.location ||
+                                "Kenya"
+                            )}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   EXPENSE TABLE
+========================================================= */
+
+function renderExpenses() {
+
+    const tbody =
+        document
+            .getElementById("expensesBody");
+
+
+    tbody.innerHTML = "";
+
+
+    if (
+        expenses.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td colspan="5">
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            💰
+                        </div>
+
+                        <strong>
+                            No expenses recorded
+                        </strong>
+
+                        <p>
+                            Add your first business expense.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    [...expenses]
+        .sort(
+            (a,b) =>
+                new Date(b.date) -
+                new Date(a.date)
+        )
+        .forEach(
+            function(expense) {
+
+                tbody.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${expense.date}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(
+                                expense.description
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(
+                                expense.category
+                            )}
+                        </td>
+
+                        <td class="money">
+                            ${money(expense.amount)}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-danger btn-sm"
+                                onclick="deleteExpense(${expense.id})">
+
+                                Delete
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   QUOTATIONS
+========================================================= */
+
+function renderQuotations() {
+
+    const container =
+        document
+            .getElementById("quotationList");
+
+
+    const savedQuotation =
+        localStorage.getItem(
+            "davanso_current_quotation"
+        );
+
+
+    if (!savedQuotation) {
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    📄
+                </div>
+
+                <strong>
+                    No quotation saved
+                </strong>
+
+                <p>
+                    Create a quotation from the quotation page.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    try {
+
+        const quotation =
+            JSON.parse(
+                savedQuotation
+            );
+
+
+        container.innerHTML = `
+
+            <div class="record">
+
+                <div>
+
+                    <h4>
+                        ${escapeHTML(
+                            quotation.quotationNumber ||
+                            "Quotation"
+                        )}
+                    </h4>
+
+                    <p>
+                        ${escapeHTML(
+                            quotation.customerName ||
+                            "Customer"
+                        )}
+                    </p>
+
+                    <p>
+                        ${escapeHTML(
+                            quotation.projectTitle ||
+                            ""
+                        )}
+                    </p>
+
+                </div>
+
+                <div class="record-value">
+
+                    <strong>
+                        ${money(
+                            quotation.grandTotal
+                        )}
+                    </strong>
+
+                    <br><br>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn btn-primary btn-sm"
+                            onclick="printSavedQuotation()">
+                            Print
+                        </button>
+
+                        <button
+                            class="btn btn-secondary btn-sm"
+                            onclick="downloadQuotation()">
+                            Download PDF
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+    catch(error) {
+
+        container.innerHTML =
+            `<div class="empty-state">
+
+                <strong>
+                    Quotation data unavailable
+                </strong>
+
+            </div>`;
+
+    }
+
+}
+
+
+/* =========================================================
+   QUOTATION ITEM
+========================================================= */
+
+function addQuotationItem(
+    description = "",
+    quantity = 1,
+    price = 0
+) {
+
+    quotationItems.push({
+
+        id: Date.now() +
+            Math.random(),
+
+        description,
+
+        quantity,
+
+        price
+
+    });
+
+
+    renderQuotationItems();
+
+}
+
+
+/* =========================================================
+   REMOVE QUOTATION ITEM
+========================================================= */
+
+function removeQuotationItem(id) {
+
+    quotationItems =
+        quotationItems.filter(
+            item =>
+                item.id !== id
+        );
+
+    renderQuotationItems();
+
+}
+
+
+/* =========================================================
+   RENDER QUOTATION ITEMS
+========================================================= */
+
+function renderQuotationItems() {
+
+    const tbody =
+        document
+            .getElementById(
+                "quotationItemsBody"
+            );
+
+
+    tbody.innerHTML = "";
+
+
+    quotationItems.forEach(
+        function(item) {
+
+            tbody.innerHTML += `
+
+                <tr>
+
+                    <td>
+
+                        <input
+                            value="${escapeHTML(
+                                item.description
+                            )}"
+                            onchange="updateQuotationItem(
+                                ${item.id},
+                                'description',
+                                this.value
+                            )">
+
+                    </td>
+
+                    <td>
+
+                        <input
+                            type="number"
+                            min="1"
+                            value="${item.quantity}"
+                            onchange="updateQuotationItem(
+                                ${item.id},
+                                'quantity',
+                                this.value
+                            )">
+
+                    </td>
+
+                    <td>
+
+                        <input
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            value="${item.price}"
+                            onchange="updateQuotationItem(
+                                ${item.id},
+                                'price',
+                                this.value
+                            )">
+
+                    </td>
+
+                    <td class="money">
+
+                        ${money(
+                            item.quantity *
+                            item.price
+                        )}
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger btn-sm"
+                            onclick="removeQuotationItem(
+                                ${item.id}
+                            )">
+
+                            Remove
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+    calculateQuotation();
+
+}
+
+
+/* =========================================================
+   UPDATE QUOTATION ITEM
+========================================================= */
+
+function updateQuotationItem(
+    id,
+    field,
+    value
+) {
+
+    const item =
+        quotationItems.find(
+            x => x.id === id
+        );
+
+
+    if (!item) return;
+
+
+    if (
+        field === "quantity" ||
+        field === "price"
+    ) {
+
+        item[field] =
+            Number(value);
+
+    }
+    else {
+
+        item[field] =
+            value;
+
+    }
+
+
+    renderQuotationItems();
+
+}
+
+
+/* =========================================================
+   CALCULATE QUOTATION
+========================================================= */
+
+function calculateQuotation() {
+
+    const subtotal =
+        quotationItems.reduce(
+            (sum,item) =>
+                sum +
+                Number(item.quantity || 0) *
+                Number(item.price || 0),
+            0
+        );
+
+
+    /*
+       VAT can be changed here.
+       Set to 0 if your quotation does not use VAT.
+    */
+
+    const vatRate = 0;
+
+    const vat =
+        subtotal *
+        vatRate;
+
+
+    const grandTotal =
+        subtotal +
+        vat;
+
+
+    document
+        .getElementById(
+            "quotationSubtotal"
+        )
+        .textContent =
+        money(subtotal);
+
+
+    document
+        .getElementById(
+            "quotationVAT"
+        )
+        .textContent =
+        money(vat);
+
+
+    document
+        .getElementById(
+            "quotationGrandTotal"
+        )
+        .textContent =
+        money(grandTotal);
+
+}
+
+
+/* =========================================================
+   CREATE QUOTATION
+========================================================= */
+
+function createQuotation(
+    event,
+    shouldPrint = false
+) {
+
+    event.preventDefault();
+
+
+    if (
+        quotationItems.length === 0
+    ) {
+
+        alert(
+            "Please add at least one quotation item."
+        );
+
+        return;
+
+    }
+
+
+    const subtotal =
+        quotationItems.reduce(
+            (sum,item) =>
+                sum +
+                Number(item.quantity || 0) *
+                Number(item.price || 0),
+            0
+        );
+
+
+    const vat = 0;
+
+    const grandTotal =
+        subtotal +
+        vat;
+
+
+    const quotation = {
+
+        quotationNumber:
+            document
+                .getElementById(
+                    "quotationNumber"
+                )
+                .value
+                .trim(),
+
+        date:
+            document
+                .getElementById(
+                    "quotationDate"
+                )
+                .value,
+
+        customerName:
+            document
+                .getElementById(
+                    "quotationCustomer"
+                )
+                .value
+                .trim(),
+
+        customerPhone:
+            document
+                .getElementById(
+                    "quotationPhone"
+                )
+                .value
+                .trim(),
+
+        projectTitle:
+            document
+                .getElementById(
+                    "quotationProject"
+                )
+                .value
+                .trim(),
+
+        location:
+            document
+                .getElementById(
+                    "quotationLocation"
+                )
+                .value
+                .trim(),
+
+        items:
+            quotationItems,
+
+        subtotal,
+
+        vat,
+
+        grandTotal
+
+    };
+
+
+    localStorage.setItem(
+        "davanso_current_quotation",
+        JSON.stringify(
+            quotation
+        )
+    );
+
+
+    closeModal(
+        "quotationModal"
+    );
+
+
+    renderQuotations();
+
+
+    if (shouldPrint) {
+
+        printQuotation(
+            quotation
+        );
+
+    }
+    else {
+
+        alert(
+            "Quotation saved successfully."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE & PRINT
+========================================================= */
+
+function saveQuotationAndPrint() {
+
+    const form =
+        document.querySelector(
+            "#quotationModal form"
+        );
+
+
+    createQuotation(
+        {
+            preventDefault: () => {}
+        },
+        true
+    );
+
+}
+
+
+/* =========================================================
+   PRINT QUOTATION
+========================================================= */
+
+function printQuotation(
+    quotation
+) {
+
+    const itemsHTML =
+        quotation.items
+            .map(
+                item => `
+
+                    <tr>
+
+                        <td>
+                            ${escapeHTML(
+                                item.description
+                            )}
+                        </td>
+
+                        <td>
+                            ${item.quantity}
+                        </td>
+
+                        <td>
+                            ${money(item.price)}
+                        </td>
+
+                        <td>
+                            ${money(
+                                item.quantity *
+                                item.price
+                            )}
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+
+    const html = `
+
+        <div
+            style="
+                font-family:Arial;
+                max-width:900px;
+                margin:auto;
+                color:#222;
+            ">
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    border-bottom:3px solid #2b8ef1;
+                    padding-bottom:20px;
+                    margin-bottom:25px;
+                ">
+
+                <div>
+
+                    <h1
+                        style="
+                            margin:0;
+                            color:#2b8ef1;
+                        ">
+
+                        Davanso Solutions Ltd
+
+                    </h1>
+
+                    <p>
+                        Business & Technical Solutions
+                    </p>
+
+                </div>
+
+                <div
+                    style="
+                        text-align:right;
+                    ">
+
+                    <h2>
+                        QUOTATION
+                    </h2>
+
+                    <p>
+                        No:
+                        ${escapeHTML(
+                            quotation.quotationNumber
+                        )}
+                    </p>
+
+                    <p>
+                        Date:
+                        ${escapeHTML(
+                            quotation.date
+                        )}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Customer Details
+            </h3>
+
+            <p>
+                <strong>
+                    Name:
+                </strong>
+                ${escapeHTML(
+                    quotation.customerName
+                )}
+            </p>
+
+            <p>
+                <strong>
+                    Phone:
+                </strong>
+                ${escapeHTML(
+                    quotation.customerPhone
+                )}
+            </p>
+
+            <p>
+                <strong>
+                    Location:
+                </strong>
+                ${escapeHTML(
+                    quotation.location
+                )}
+            </p>
+
+            <p>
+                <strong>
+                    Project:
+                </strong>
+                ${escapeHTML(
+                    quotation.projectTitle
+                )}
+            </p>
+
+            <br>
+
+
+            <table
+                style="
+                    width:100%;
+                    border-collapse:collapse;
+                ">
+
+                <thead>
+
+                    <tr>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:10px;
+                                text-align:left;
+                            ">
+                            Description
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:10px;
+                            ">
+                            Qty
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:10px;
+                            ">
+                            Unit Price
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:10px;
+                            ">
+                            Total
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${itemsHTML}
+
+                </tbody>
+
+            </table>
+
+
+            <div
+                style="
+                    margin-top:25px;
+                    margin-left:auto;
+                    width:300px;
+                ">
+
+                <p>
+                    Subtotal:
+                    <strong>
+                        ${money(
+                            quotation.subtotal
+                        )}
+                    </strong>
+                </p>
+
+                <p>
+                    VAT:
+                    <strong>
+                        ${money(
+                            quotation.vat
+                        )}
+                    </strong>
+                </p>
+
+                <h2
+                    style="
+                        border-top:2px solid #222;
+                        padding-top:10px;
+                    ">
+
+                    Grand Total:
+                    ${money(
+                        quotation.grandTotal
+                    )}
+
+                </h2>
+
+            </div>
+
+
+            <br><br>
+
+            <p>
+                Thank you for choosing Davanso Solutions Ltd.
+            </p>
+
+            <br>
+
+            <p>
+                Authorized Signature:
+                ______________________________
+            </p>
+
+        </div>
+
+    `;
+
+
+    showPrintWindow(
+        html,
+        "Quotation"
+    );
+
+}
+
+
+/* =========================================================
+   PRINT SAVED QUOTATION
+========================================================= */
+
+function printSavedQuotation() {
+
+    const saved =
+        localStorage.getItem(
+            "davanso_current_quotation"
+        );
+
+
+    if (!saved) {
+
+        alert(
+            "No quotation is available."
+        );
+
+        return;
+
+    }
+
+
+    const quotation =
+        JSON.parse(saved);
+
+
+    printQuotation(
+        quotation
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD QUOTATION PDF
+========================================================= */
+
+function downloadQuotation() {
+
+    const saved =
+        localStorage.getItem(
+            "davanso_current_quotation"
+        );
+
+
+    if (!saved) {
+
+        alert(
+            "No quotation is available."
+        );
+
+        return;
+
+    }
+
+
+    const quotation =
+        JSON.parse(saved);
+
+
+    const itemsHTML =
+        quotation.items
+            .map(
+                item => `
+
+                    <tr>
+
+                        <td>
+                            ${escapeHTML(
+                                item.description
+                            )}
+                        </td>
+
+                        <td>
+                            ${item.quantity}
+                        </td>
+
+                        <td>
+                            ${money(item.price)}
+                        </td>
+
+                        <td>
+                            ${money(
+                                item.quantity *
+                                item.price
+                            )}
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+
+    const html = `
+
+        <html>
+
+        <head>
+
+            <title>
+                Quotation
+            </title>
+
+            <style>
+
+                body {
+                    font-family:Arial;
+                    padding:40px;
+                    color:#222;
+                }
+
+                h1 {
+                    color:#2b8ef1;
+                }
+
+                table {
+                    width:100%;
+                    border-collapse:collapse;
+                    margin-top:25px;
+                }
+
+                th,
+                td {
+                    border:1px solid #ccc;
+                    padding:10px;
+                    text-align:left;
+                }
+
+                th {
+                    background:#f1f5f9;
+                }
+
+                .total {
+                    margin-left:auto;
+                    width:300px;
+                    margin-top:25px;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <h1>
+                Davanso Solutions Ltd
+            </h1>
+
+            <h2>
+                QUOTATION
+            </h2>
+
+            <p>
+                Quotation No:
+                ${escapeHTML(
+                    quotation.quotationNumber
+                )}
+            </p>
+
+            <p>
+                Date:
+                ${escapeHTML(
+                    quotation.date
+                )}
+            </p>
+
+            <hr>
+
+            <h3>
+                Customer
+            </h3>
+
+            <p>
+                ${escapeHTML(
+                    quotation.customerName
+                )}
+            </p>
+
+            <p>
+                ${escapeHTML(
+                    quotation.customerPhone
+                )}
+            </p>
+
+            <p>
+                ${escapeHTML(
+                    quotation.location
+                )}
+            </p>
+
+            <p>
+                ${escapeHTML(
+                    quotation.projectTitle
+                )}
+            </p>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Quantity
+                        </th>
+
+                        <th>
+                            Unit Price
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${itemsHTML}
+
+                </tbody>
+
+            </table>
+
+
+            <div class="total">
+
+                <p>
+                    Subtotal:
+                    ${money(
+                        quotation.subtotal
+                    )}
+                </p>
+
+                <p>
+                    VAT:
+                    ${money(
+                        quotation.vat
+                    )}
+                </p>
+
+                <h2>
+                    Grand Total:
+                    ${money(
+                        quotation.grandTotal
+                    )}
+                </h2>
+
+            </div>
+
+
+            <br>
+
+            <p>
+                Thank you for choosing Davanso Solutions Ltd.
+            </p>
+
+        </body>
+
+        </html>
+
+    `;
+
+
+    /*
+       Browser print dialog allows:
+       Destination → Save as PDF
+    */
+
+    showPrintWindow(
+        html,
+        "Quotation PDF"
+    );
+
+}
+
+
+/* =========================================================
+   PRINT RECEIPT
+========================================================= */
+
+function printReceipt(
+    sale
+) {
+
+    const html = `
+
+        <div
+            style="
+                font-family:Arial;
+                max-width:500px;
+                margin:auto;
+            ">
+
+            <div
+                style="
+                    text-align:center;
+                    border-bottom:2px solid #222;
+                    padding-bottom:15px;
+                ">
+
+                <h2>
+                    Davanso Solutions Ltd
+                </h2>
+
+                <p>
+                    SALES RECEIPT
+                </p>
+
+            </div>
+
+
+            <p>
+                Receipt No:
+                ${sale.id}
+            </p>
+
+            <p>
+                Date:
+                ${sale.date}
+            </p>
+
+            <p>
+                Customer:
+                ${escapeHTML(
+                    sale.customer
+                )}
+            </p>
+
+
+            <hr>
+
+
+            <p>
+                Product:
+                <strong>
+                    ${escapeHTML(
+                        sale.item
+                    )}
+                </strong>
+            </p>
+
+            <p>
+                Quantity:
+                ${sale.quantity}
+            </p>
+
+            <p>
+                Unit Price:
+                ${money(
+                    sale.sellingPrice
+                )}
+            </p>
+
+
+            <hr>
+
+
+            <h2>
+                Total:
+                ${money(
+                    sale.total
+                )}
+            </h2>
+
+
+            <p>
+                Thank you for your business.
+            </p>
+
+        </div>
+
+    `;
+
+
+    showPrintWindow(
+        html,
+        "Sales Receipt"
+    );
+
+}
+
+
+/* =========================================================
+   PRINT REPORT
+========================================================= */
+
+function printReport() {
+
+    const table =
+        document
+            .getElementById(
+                "reportBody"
+            )
+            .innerHTML;
+
+
+    const html = `
+
+        <div
+            style="
+                font-family:Arial;
+                padding:30px;
+            ">
+
+            <h1>
+                Davanso Solutions Ltd
+            </h1>
+
+            <h2>
+                Business Report
+            </h2>
+
+            <p>
+                Generated:
+                ${today()}
+            </p>
+
+            <br>
+
+            <table
+                style="
+                    width:100%;
+                    border-collapse:collapse;
+                ">
+
+                <thead>
+
+                    <tr>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:8px;
+                            ">
+                            Date
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:8px;
+                            ">
+                            Type
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:8px;
+                            ">
+                            Description
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:8px;
+                            ">
+                            Quantity
+                        </th>
+
+                        <th
+                            style="
+                                border:1px solid #ccc;
+                                padding:8px;
+                            ">
+                            Amount
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${table}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    showPrintWindow(
+        html,
+        "Business Report"
+    );
+
+}
+
+
+/* =========================================================
+   SHOW PRINT WINDOW
+========================================================= */
+
+function showPrintWindow(
+    content,
+    title
+) {
+
+    const printWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    if (!printWindow) {
+
+        alert(
+            "Please allow pop-ups in your browser to print documents."
+        );
+
+        return;
+
+    }
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+            <title>
+                ${title}
+            </title>
+
+            <meta
+                charset="UTF-8">
+
+            <style>
+
+                body {
+                    background:white;
+                    color:#222;
+                }
+
+                table {
+                    width:100%;
+                    border-collapse:collapse;
+                }
+
+                th,
+                td {
+                    border:1px solid #ccc;
+                    padding:8px;
+                }
+
+                th {
+                    background:#f1f5f9;
+                }
+
+                @media print {
+
+                    body {
+                        margin:0;
+                    }
+
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            ${content}
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+
+    printWindow.focus();
+
+
+    setTimeout(
+        function() {
+
+            printWindow.print();
+
+        },
+        500
+    );
+
+}
+
+
+/* =========================================================
+   REPORTS
+========================================================= */
+
+function generateReport() {
+
+    const period =
+        document
+            .getElementById(
+                "reportPeriod"
+            )
+            .value;
+
+
+    let filteredSales =
+        [...sales];
+
+
+    let filteredExpenses =
+        [...expenses];
+
+
+    if (
+        period === "today"
+    ) {
+
+        filteredSales =
+            sales.filter(
+                sale =>
+                    sale.date ===
+                    today()
+            );
+
+
+        filteredExpenses =
+            expenses.filter(
+                expense =>
+                    expense.date ===
+                    today()
+            );
+
+    }
+
+
+    if (
+        period === "month"
+    ) {
+
+        const now =
+            new Date();
+
+
+        const year =
+            now.getFullYear();
+
+
+        const month =
+            String(
+                now.getMonth() + 1
+            )
+            .padStart(
+                2,
+                "0"
+            );
+
+
+        const prefix =
+            `${year}-${month}`;
+
+
+        filteredSales =
+            sales.filter(
+                sale =>
+                    sale.date.startsWith(
+                        prefix
+                    )
+            );
+
+
+        filteredExpenses =
+            expenses.filter(
+                expense =>
+                    expense.date.startsWith(
+                        prefix
+                    )
+            );
+
+    }
+
+
+    const totalSales =
+        filteredSales.reduce(
+            (sum,sale) =>
+                sum +
+                Number(
+                    sale.total || 0
+                ),
+            0
+        );
+
+
+    const totalExpenses =
+        filteredExpenses.reduce(
+            (sum,expense) =>
+                sum +
+                Number(
+                    expense.amount || 0
+                ),
+            0
+        );
+
+
+    const grossProfit =
+        filteredSales.reduce(
+            (sum,sale) =>
+                sum +
+                Number(
+                    sale.profit || 0
+                ),
+            0
+        );
+
+
+    const stockMovement =
+        filteredSales.reduce(
+            (sum,sale) =>
+                sum +
+                Number(
+                    sale.quantity || 0
+                ),
+            0
+        );
+
+
+    document
+        .getElementById(
+            "reportSales"
+        )
+        .textContent =
+        money(totalSales);
+
+
+    document
+        .getElementById(
+            "reportExpenses"
+        )
+        .textContent =
+        money(totalExpenses);
+
+
+    document
+        .getElementById(
+            "reportProfit"
+        )
+        .textContent =
+        money(
+            grossProfit -
+            totalExpenses
+        );
+
+
+    document
+        .getElementById(
+            "reportStockMovement"
+        )
+        .textContent =
+        stockMovement;
+
+
+    renderReportTable(
+        filteredSales,
+        filteredExpenses
+    );
+
+}
+
+
+/* =========================================================
+   REPORT TABLE
+========================================================= */
+
+function renderReportTable(
+    filteredSales,
+    filteredExpenses
+) {
+
+    const tbody =
+        document
+            .getElementById(
+                "reportBody"
+            );
+
+
+    tbody.innerHTML = "";
+
+
+    const records = [];
+
+
+    filteredSales.forEach(
+        function(sale) {
+
+            records.push({
+
+                date:
+                    sale.date,
+
+                type:
+                    "Sale",
+
+                description:
+                    sale.item,
+
+                quantity:
+                    sale.quantity,
+
+                amount:
+                    sale.total
+
+            });
+
+        }
+    );
+
+
+    filteredExpenses.forEach(
+        function(expense) {
+
+            records.push({
+
+                date:
+                    expense.date,
+
+                type:
+                    "Expense",
+
+                description:
+                    expense.description,
+
+                quantity:
+                    "-",
+
+                amount:
+                    expense.amount
+
+            });
+
+        }
+    );
+
+
+    records.sort(
+        (a,b) =>
+            new Date(b.date) -
+            new Date(a.date)
+    );
+
+
+    if (
+        records.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td colspan="5">
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            📊
+                        </div>
+
+                        <strong>
+                            No report data
+                        </strong>
+
+                        <p>
+                            Records will appear here.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    records.forEach(
+        function(record) {
+
+            tbody.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        ${record.date}
+                    </td>
+
+                    <td>
+
+                        <span class="badge ${
+                            record.type === "Sale"
+                                ? "badge-success"
+                                : "badge-danger"
+                        }">
+
+                            ${record.type}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            record.description
+                        )}
+                    </td>
+
+                    <td>
+                        ${record.quantity}
+                    </td>
+
+                    <td class="money">
+                        ${money(
+                            record.amount
+                        )}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DASHBOARD STATISTICS
+========================================================= */
+
+function updateStatistics() {
+
+    const currentDate =
+        today();
+
+
+    const todaySales =
+        sales.filter(
+            sale =>
+                sale.date ===
+                currentDate
+        );
+
+
+    const salesAmount =
+        todaySales.reduce(
+            (sum,sale) =>
+                sum +
+                Number(
+                    sale.total || 0
+                ),
+            0
+        );
+
+
+    const profitAmount =
+        todaySales.reduce(
+            (sum,sale) =>
+                sum +
+                Number(
+                    sale.profit || 0
+                ),
+            0
+        );
+
+
+    const expensesAmount =
+        expenses.reduce(
+            (sum,expense) =>
+                sum +
+                Number(
+                    expense.amount || 0
+                ),
+            0
+        );
+
+
+    const stockValue =
+        stock.reduce(
+            (sum,item) => {
+
+                const remaining =
+                    item.quantity -
+                    item.sold;
+
+
+                return sum +
+                    Math.max(
+                        remaining,
+                        0
+                    ) *
+                    Number(
+                        item.purchasePrice || 0
+                    );
+
+            },
+            0
+        );
+
+
+    document
+        .getElementById(
+            "todaySales"
+        )
+        .textContent =
+        money(
+            salesAmount
+        );
+
+
+    document
+        .getElementById(
+            "todayProfit"
+        )
+        .textContent =
+        money(
+            profitAmount
+        );
+
+
+    document
+        .getElementById(
+            "totalExpenses"
+        )
+        .textContent =
+        money(
+            expensesAmount
+        );
+
+
+    document
+        .getElementById(
+            "stockValue"
+        )
+        .textContent =
+        money(
+            stockValue
+        );
+
+
+    document
+        .getElementById(
+            "customerCount"
+        )
+        .textContent =
+        customers.length;
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(char) {
+
+            const entities = {
+
+                "&": "&amp;",
+
+                "<": "&lt;",
+
+                ">": "&gt;",
+
+                '"': "&quot;",
+
+                "'": "&#039;"
+
+            };
+
+
+            return entities[
+                char
+            ];
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function scrollToSection(
+    id
+) {
+
+    const element =
+        document.getElementById(id);
+
+
+    if (!element) return;
+
+
+    element.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+
+function scrollToReports() {
+
+    scrollToSection(
+        "reportsSection"
+    );
+
+}
+
+
+function scrollToSales() {
+
+    scrollToSection(
+        "salesSection"
+    );
+
+}
+
+
+/* =========================================================
+   REFRESH EVERYTHING
+========================================================= */
+
+function refreshDashboard() {
+
+    populateSaleItems();
+
+    renderInventory();
+
+    renderAlerts();
+
+    renderRecentSales();
+
+    renderSales();
+
+    renderCustomers();
+
+    renderExpenses();
+
+    renderQuotations();
+
+    updateStatistics();
+
+    generateReport();
+
+}
+
+
+/* =========================================================
+   CURRENT DATE / TIME
+========================================================= */
+
+function updateClock() {
+
+    const now =
+        new Date();
+
+
+    document
+        .getElementById(
+            "currentDate"
+        )
+        .textContent =
+        now.toLocaleDateString(
+            "en-KE",
+            {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }
+        );
+
+
+    document
+        .getElementById(
+            "currentTime"
+        )
+        .textContent =
+        now.toLocaleTimeString(
+            "en-KE"
+        );
+
+}
+
+
+/* =========================================================
+   NEW QUOTATION DEFAULTS
+========================================================= */
+
+function prepareQuotation() {
+
+    document
+        .getElementById(
+            "quotationDate"
+        )
+        .value =
+        today();
+
+
+    document
+        .getElementById(
+            "quotationNumber"
+        )
+        .value =
+        "QTN-" +
+        new Date()
+            .getTime()
+            .toString()
+            .slice(-8);
+
+
+    quotationItems = [];
+
+
+    addQuotationItem(
+        "Product / Service",
+        1,
+        0
+    );
+
+}
+
+
+/* =========================================================
+   OPEN QUOTATION MODAL
+========================================================= */
+
+const originalOpenModal =
+    openModal;
+
+
+openModal = function(id) {
+
+    if (
+        id ===
+        "quotationModal"
+    ) {
+
+        prepareQuotation();
+
+    }
+
+
+    originalOpenModal(id);
+
+};
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        document
+            .getElementById(
+                "stockDate"
+            );
+
+        document
+            .getElementById(
+                "saleDate"
+            )
+            .value =
+            today();
+
+
+        document
+            .getElementById(
+                "expenseDate"
+            )
+            .value =
+            today();
+
+
+        document
+            .getElementById(
+                "quotationDate"
+            )
+            .value =
+            today();
+
+
+        document
+            .getElementById(
+                "footerYear"
+            )
+            .textContent =
+            new Date()
+                .getFullYear();
+
+
+        updateClock();
+
+        setInterval(
+            updateClock,
+            1000
+        );
+
+
+        refreshDashboard();
+
+    }
+);
+
+</script>
+
+</body>
+</html>

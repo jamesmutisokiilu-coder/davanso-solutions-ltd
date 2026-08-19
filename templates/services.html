@@ -1,0 +1,4206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Our Services | Davanso Solutions Ltd</title>
+
+    <meta
+        name="description"
+        content="Davanso Solutions Ltd provides borehole drilling, borehole equipping, solarisation, electrical installation, electronics, sound systems, water pumping, tank and tower installation services in Kenya.">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   DAVANSO SOLUTIONS LTD
+   SERVICES PAGE
+========================================================= */
+
+:root {
+
+    --primary: #087f9c;
+    --primary-dark: #04556b;
+    --primary-light: #e9f8fb;
+
+    --secondary: #f2ad19;
+    --secondary-dark: #d48e00;
+
+    --dark: #082f3d;
+    --dark-2: #123f4e;
+
+    --text: #53656d;
+    --muted: #89989f;
+
+    --white: #ffffff;
+
+    --light: #f5fafc;
+    --light-2: #eef6f8;
+
+    --border: #dfeaed;
+
+    --success: #15945b;
+
+    --shadow:
+        0 20px 60px rgba(5,53,68,.10);
+
+    --shadow-small:
+        0 10px 30px rgba(5,53,68,.08);
+
+    --radius: 18px;
+
+    --container: 1180px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background: var(--white);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+
+    font-family: "Poppins", sans-serif;
+
+    color: var(--dark);
+
+    line-height: 1.2;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+.container {
+
+    width: min(92%, var(--container));
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar {
+
+    background: var(--dark);
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 12px;
+}
+
+
+.top-content {
+
+    min-height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.top-left,
+.top-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.top-bar i {
+
+    color: var(--secondary);
+
+    margin-right: 6px;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(255,255,255,.97);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+
+    transition: .3s;
+}
+
+
+.nav-content {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* LOGO */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 210px;
+}
+
+
+.logo-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    display: grid;
+
+    place-items: center;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+
+.logo-text strong {
+
+    display: block;
+
+    color: var(--dark);
+
+    font-family: "Poppins";
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.logo-text span {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* NAV LINKS */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+nav a {
+
+    position: relative;
+
+    color: var(--dark);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+
+nav a:hover,
+nav a.active {
+
+    color: var(--primary);
+}
+
+
+nav a.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: -31px;
+
+    height: 3px;
+
+    border-radius: 20px;
+
+    background: var(--secondary);
+}
+
+
+.nav-quote {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px 19px;
+
+    border-radius: 9px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.nav-quote:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--dark);
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   PAGE HERO
+========================================================= */
+
+.page-hero {
+
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(3,42,54,.98),
+            rgba(5,88,108,.92)
+        );
+}
+
+
+.page-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    border-radius: 50%;
+
+    right: -180px;
+
+    top: -310px;
+}
+
+
+.page-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 50%;
+
+    left: -250px;
+
+    bottom: -280px;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 17px;
+
+    color: rgba(255,255,255,.58);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.breadcrumb a {
+
+    color: #ffd05b;
+}
+
+
+.breadcrumb i {
+
+    font-size: 8px;
+}
+
+
+.page-hero h1 {
+
+    color: white;
+
+    max-width: 780px;
+
+    font-size: clamp(40px,6vw,62px);
+
+    letter-spacing: -1px;
+
+    margin-bottom: 18px;
+}
+
+
+.page-hero p {
+
+    max-width: 730px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+    padding: 100px 0;
+}
+
+
+.section-label {
+
+    display: inline-block;
+
+    margin-bottom: 11px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.section-title {
+
+    font-size: clamp(31px,4vw,45px);
+
+    letter-spacing: -1px;
+
+    margin-bottom: 17px;
+}
+
+
+.section-title span {
+
+    color: var(--primary);
+}
+
+
+.section-description {
+
+    max-width: 720px;
+
+    font-size: 13px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   SERVICE INTRO
+========================================================= */
+
+.service-intro {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+.intro-box {
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    color: white;
+
+    box-shadow: var(--shadow);
+}
+
+
+.intro-box h3 {
+
+    color: white;
+
+    font-size: 22px;
+
+    margin-bottom: 14px;
+}
+
+
+.intro-box p {
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 13px;
+
+    line-height: 1.85;
+}
+
+
+.intro-stat-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.intro-stat {
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.10);
+}
+
+
+.intro-stat strong {
+
+    display: block;
+
+    color: white;
+
+    font-family: "Poppins";
+
+    font-size: 20px;
+}
+
+
+.intro-stat span {
+
+    color: rgba(255,255,255,.60);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SERVICES GRID
+========================================================= */
+
+.services-section {
+
+    background: var(--light);
+}
+
+
+.services-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 48px;
+}
+
+
+.services-heading .section-description {
+
+    max-width: 500px;
+}
+
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 24px;
+}
+
+
+/* SERVICE CARD */
+
+.service-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 36px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    transition: .35s;
+}
+
+
+.service-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background: var(--primary);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: .35s;
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+
+.service-card:hover::before {
+
+    transform: scaleX(1);
+}
+
+
+.service-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.service-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 16px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 24px;
+
+    transition: .3s;
+}
+
+
+.service-card:hover .service-icon {
+
+    background: var(--primary);
+
+    color: white;
+
+    transform: rotate(-4deg);
+}
+
+
+.service-number {
+
+    color: #dcecef;
+
+    font-family: "Poppins";
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+.service-card h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 11px;
+}
+
+
+.service-card > p {
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+
+/* SERVICE LIST */
+
+.service-list {
+
+    list-style: none;
+
+    display: grid;
+
+    gap: 9px;
+
+    padding-top: 19px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.service-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    font-size: 11px;
+
+    color: var(--text);
+}
+
+
+.service-list i {
+
+    color: var(--success);
+
+    margin-top: 5px;
+
+    font-size: 10px;
+}
+
+
+.service-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 22px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+
+.service-link i {
+
+    transition: .3s;
+}
+
+
+.service-link:hover i {
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   DETAILED SERVICES
+========================================================= */
+
+.details-section {
+
+    background: white;
+}
+
+
+.detail-block {
+
+    display: grid;
+
+    grid-template-columns: 310px 1fr;
+
+    gap: 55px;
+
+    padding: 55px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.detail-block:last-child {
+
+    border-bottom: 0;
+}
+
+
+.detail-sidebar {
+
+    position: relative;
+}
+
+
+.detail-sidebar::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 4px;
+
+    width: 3px;
+
+    height: 70px;
+
+    background: var(--secondary);
+
+    border-radius: 10px;
+}
+
+
+.detail-sidebar-content {
+
+    padding-left: 20px;
+}
+
+
+.detail-sidebar .small-number {
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+.detail-sidebar h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 13px;
+}
+
+
+.detail-sidebar p {
+
+    font-size: 11px;
+
+    line-height: 1.75;
+}
+
+
+.detail-content h4 {
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+
+.detail-content > p {
+
+    font-size: 12px;
+
+    line-height: 1.85;
+
+    margin-bottom: 23px;
+}
+
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+}
+
+
+.feature-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 16px;
+
+    border-radius: 11px;
+
+    background: var(--light);
+
+    border: 1px solid var(--border);
+}
+
+
+.feature-item i {
+
+    width: 27px;
+
+    height: 27px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: var(--primary);
+
+    font-size: 11px;
+}
+
+
+.feature-item strong {
+
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+
+.feature-item span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-section {
+
+    background: var(--dark);
+}
+
+
+.process-heading {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 55px;
+}
+
+
+.process-heading .section-label {
+
+    color: #ffd05b;
+}
+
+
+.process-heading h2 {
+
+    color: white;
+
+    font-size: clamp(30px,4vw,44px);
+
+    margin-bottom: 14px;
+}
+
+
+.process-heading p {
+
+    color: rgba(255,255,255,.62);
+
+    font-size: 13px;
+}
+
+
+.process-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5,1fr);
+
+    gap: 15px;
+}
+
+
+.process-card {
+
+    position: relative;
+
+    padding: 25px 18px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    text-align: center;
+}
+
+
+.process-card:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 43px;
+
+    right: -16px;
+
+    width: 17px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,.20);
+}
+
+
+.process-number {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 17px;
+
+    border-radius: 50%;
+
+    background: var(--secondary);
+
+    color: var(--dark);
+
+    font-family: "Poppins";
+
+    font-weight: 800;
+
+    font-size: 12px;
+}
+
+
+.process-card h3 {
+
+    color: white;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.process-card p {
+
+    color: rgba(255,255,255,.52);
+
+    font-size: 10px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SERVICE COVERAGE
+========================================================= */
+
+.coverage-section {
+
+    background: var(--light);
+}
+
+
+.coverage-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
+
+    margin-top: 45px;
+}
+
+
+.coverage-card {
+
+    padding: 27px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    transition: .3s;
+}
+
+
+.coverage-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+.coverage-card i {
+
+    color: var(--primary);
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+}
+
+
+.coverage-card h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 7px;
+}
+
+
+.coverage-card p {
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 78px 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+
+.cta::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    border-radius: 50%;
+
+    right: -220px;
+
+    top: -260px;
+}
+
+
+.cta-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.cta h2 {
+
+    color: white;
+
+    font-size: 34px;
+
+    margin-bottom: 12px;
+}
+
+
+.cta p {
+
+    color: rgba(255,255,255,.68);
+
+    max-width: 650px;
+
+    font-size: 13px;
+}
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 14px 22px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+
+.btn-light {
+
+    background: white;
+
+    color: var(--primary-dark);
+
+    flex-shrink: 0;
+}
+
+
+.btn-light:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,.15);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #062c3b;
+
+    color: rgba(255,255,255,.60);
+
+    padding-top: 70px;
+}
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.6fr 1fr 1fr 1.2fr;
+
+    gap: 50px;
+
+    padding-bottom: 55px;
+}
+
+
+.footer-logo .logo-text strong {
+
+    color: white;
+}
+
+
+.footer-description {
+
+    max-width: 340px;
+
+    font-size: 12px;
+
+    margin: 20px 0;
+}
+
+
+.social-links {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.social-links a {
+
+    width: 35px;
+
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.08);
+
+    transition: .3s;
+}
+
+
+.social-links a:hover {
+
+    background: var(--secondary);
+
+    color: var(--dark);
+}
+
+
+footer h4 {
+
+    color: white;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.footer-links,
+.contact-list {
+
+    list-style: none;
+
+    display: grid;
+
+    gap: 10px;
+}
+
+
+.footer-links a,
+.contact-list li {
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+
+.footer-links a:hover {
+
+    color: white;
+
+    padding-left: 4px;
+}
+
+
+.contact-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+}
+
+
+.contact-list i {
+
+    color: var(--secondary);
+
+    margin-top: 5px;
+}
+
+
+.footer-bottom {
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    padding: 20px 0;
+}
+
+
+.footer-bottom .container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p {
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+.scroll-top {
+
+    position: fixed;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    z-index: 900;
+
+    width: 43px;
+
+    height: 43px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+}
+
+
+.scroll-top.show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.scroll-top:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px) {
+
+    nav {
+        gap: 15px;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .process-card:nth-child(3)::after {
+        display: none;
+    }
+
+}
+
+
+@media(max-width:900px) {
+
+    .top-right {
+        display: none;
+    }
+
+    .nav-quote {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+
+        position: absolute;
+
+        top: 82px;
+
+        left: 0;
+
+        right: 0;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 20px;
+
+        background: white;
+
+        box-shadow: 0 15px 30px rgba(0,0,0,.08);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a.active::after {
+        display: none;
+    }
+
+    .service-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .services-heading {
+        display: block;
+    }
+
+    .detail-block {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .coverage-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .cta-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media(max-width:650px) {
+
+    .top-bar {
+        display: none;
+    }
+
+    .nav-content {
+        min-height: 72px;
+    }
+
+    nav {
+        top: 72px;
+    }
+
+    .page-hero {
+        min-height: 380px;
+    }
+
+    .page-hero h1 {
+        font-size: 40px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-card:not(:last-child)::after {
+        display: none;
+    }
+
+    .coverage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .cta h2 {
+        font-size: 29px;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="container top-content">
+
+        <div class="top-left">
+
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Kenya
+            </span>
+
+            <span>
+                <i class="fa-solid fa-clock"></i>
+                Mon - Sat: 8:00 AM - 6:00 PM
+            </span>
+
+        </div>
+
+
+        <div class="top-right">
+
+            <span>
+                <i class="fa-solid fa-phone"></i>
+                +254 741 842663
+            </span>
+
+            <span>
+                <i class="fa-solid fa-envelope"></i>
+                info@davansosolutions.co.ke
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+
+        <a href="/index" class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-droplet"></i>
+
+            </div>
+
+
+            <div class="logo-text">
+
+                <strong>DAVANSO</strong>
+
+                <span>SOLUTIONS LTD</span>
+
+            </div>
+
+        </a>
+
+
+
+        <nav id="mainNav">
+
+            <a href="/index">
+                Home
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+            <a href="/services" class="active">
+                Services
+            </a>
+
+            <a href="/products">
+                Products
+            </a>
+
+            <a href="/quotations">
+                Quotations
+            </a>
+
+            <a href="/contact">
+                Contact
+            </a>
+
+             <a href="/dashboard">
+                Dashboard
+            </a>
+
+        </nav>
+
+
+        <a
+            href="/quotations"
+            class="nav-quote">
+
+            <i class="fa-solid fa-file-invoice"></i>
+
+            Get a Quote
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="page-hero">
+
+    <div class="container hero-content">
+
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <span>
+                Services
+            </span>
+
+        </div>
+
+
+        <h1>
+            Professional Technical Services
+        </h1>
+
+
+        <p>
+
+            From borehole drilling and water pumping to
+            solarisation, electrical installation and
+            electronics, Davanso Solutions Ltd provides
+            integrated technical solutions for residential,
+            commercial, agricultural and institutional projects.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICE INTRODUCTION
+========================================================= -->
+
+<section class="section">
+
+    <div class="container service-intro">
+
+
+        <div>
+
+            <span class="section-label">
+                WHAT WE DO
+            </span>
+
+
+            <h2 class="section-title">
+
+                One Partner For Your
+                <span>Technical Needs.</span>
+
+            </h2>
+
+
+            <p class="section-description">
+
+                We provide a range of technical services designed
+                to work together. This allows customers to
+                coordinate water, solar, electrical and equipment
+                requirements through one professional service
+                provider.
+
+            </p>
+
+
+            <br>
+
+
+            <p class="section-description">
+
+                Our services can be customized according to
+                project size, location, technical requirements
+                and available budget.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="intro-box">
+
+            <h3>
+                Complete Project Support
+            </h3>
+
+
+            <p>
+
+                We can support your project from the initial
+                consultation and site requirements through
+                equipment selection, quotation, installation,
+                commissioning and maintenance.
+
+            </p>
+
+
+            <div class="intro-stat-grid">
+
+
+                <div class="intro-stat">
+
+                    <strong>07</strong>
+
+                    <span>
+                        Main Service Areas
+                    </span>
+
+                </div>
+
+
+                <div class="intro-stat">
+
+                    <strong>01</strong>
+
+                    <span>
+                        Integrated Approach
+                    </span>
+
+                </div>
+
+
+                <div class="intro-stat">
+
+                    <strong>24/7</strong>
+
+                    <span>
+                        Project Support
+                    </span>
+
+                </div>
+
+
+                <div class="intro-stat">
+
+                    <strong>100%</strong>
+
+                    <span>
+                        Customer Focus
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN SERVICES
+========================================================= -->
+
+<section class="section services-section">
+
+    <div class="container">
+
+
+        <div class="services-heading">
+
+            <div>
+
+                <span class="section-label">
+                    OUR SERVICES
+                </span>
+
+
+                <h2 class="section-title">
+
+                    What We
+                    <span>Offer.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Explore our core technical services and
+                solutions. Select a service to learn more
+                about what we can provide.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 01 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-faucet-drip"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Borehole Drilling & Equipping
+                </h3>
+
+
+                <p>
+
+                    Professional borehole development solutions
+                    for homes, farms, businesses and institutions
+                    requiring dependable groundwater access.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Borehole drilling coordination
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Borehole equipping
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Submersible pump solutions
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pump control systems
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Water delivery systems
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 02 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-solar-panel"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Solarisation & Solar Systems
+                </h3>
+
+
+                <p>
+
+                    Solar energy solutions designed to provide
+                    reliable power for homes, businesses, water
+                    pumping and other technical applications.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar water pumping
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar panel installation
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar system sizing
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Inverter solutions
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar system maintenance
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 03 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Electrical Installation & Maintenance
+                </h3>
+
+
+                <p>
+
+                    Electrical installation and maintenance
+                    services for residential, commercial and
+                    institutional environments.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Electrical wiring
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Distribution boards
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Lighting installation
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Fault diagnosis
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Electrical maintenance
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 04 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-microphone-lines"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        04
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Electronics & Sound Systems
+                </h3>
+
+
+                <p>
+
+                    Audio, electronics and sound reinforcement
+                    solutions for events, institutions, churches,
+                    businesses and public spaces.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Public address systems
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Speakers and amplifiers
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Microphone systems
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Audio installation
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Equipment configuration
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 05 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-solar-panel"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        05
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Solar Accessories & Equipment
+                </h3>
+
+
+                <p>
+
+                    Supply of solar-related equipment and
+                    accessories for new installations,
+                    replacements and system upgrades.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar panels
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar controllers
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Inverters
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar cables and connectors
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Mounting accessories
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="products.html"
+                    class="service-link">
+
+                    View Products
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 06 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-water"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        06
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Water Pumping Systems
+                </h3>
+
+
+                <p>
+
+                    Water pumping solutions for boreholes,
+                    domestic water supply, irrigation and
+                    commercial applications.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Submersible pumps
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Surface pumps
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Solar pumping systems
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pump control systems
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pump maintenance
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SERVICE 07 -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-tank-water"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        07
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Tank & Tower Installation
+                </h3>
+
+
+                <p>
+
+                    Water storage infrastructure including tanks,
+                    elevated towers and associated plumbing and
+                    pumping connections.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Water tank installation
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Tower structures
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Tank connections
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Water distribution
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pump-to-tank systems
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="quotations.html"
+                    class="service-link">
+
+                    Request Service
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- ADDITIONAL SERVICE -->
+
+            <div class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </div>
+
+
+                    <span class="service-number">
+                        08
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Maintenance & Technical Support
+                </h3>
+
+
+                <p>
+
+                    Ongoing technical support designed to keep
+                    installed systems operating efficiently and
+                    reduce unnecessary downtime.
+
+                </p>
+
+
+                <ul class="service-list">
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Preventive maintenance
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        System inspection
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Fault identification
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Equipment replacement
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Technical consultation
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="contact.html"
+                    class="service-link">
+
+                    Contact Us
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     DETAILED SERVICE INFORMATION
+========================================================= -->
+
+<section class="section details-section">
+
+    <div class="container">
+
+
+        <div class="services-heading">
+
+            <div>
+
+                <span class="section-label">
+                    SERVICE DETAILS
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Built Around Your
+                    <span>Project.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Every project has different technical
+                requirements. Our services can be configured
+                according to the application and site
+                requirements.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- BOREHOLES -->
+
+        <div class="detail-block">
+
+            <div class="detail-sidebar">
+
+                <div class="detail-sidebar-content">
+
+                    <div class="small-number">
+                        SERVICE 01
+                    </div>
+
+                    <h3>
+                        Borehole Solutions
+                    </h3>
+
+                    <p>
+
+                        Groundwater development and borehole
+                        equipment solutions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-content">
+
+                <h4>
+                    Water Access From Source To Storage
+                </h4>
+
+
+                <p>
+
+                    Davanso Solutions provides borehole-related
+                    technical solutions covering drilling
+                    coordination, borehole equipping, pumping
+                    and water delivery infrastructure.
+
+                </p>
+
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-faucet"></i>
+
+                        <div>
+
+                            <strong>
+                                Borehole Equipping
+                            </strong>
+
+                            <span>
+                                Equipment and accessories for
+                                developing a functional borehole.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-water"></i>
+
+                        <div>
+
+                            <strong>
+                                Pumping
+                            </strong>
+
+                            <span>
+                                Pump solutions for different
+                                water supply requirements.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <div>
+
+                            <strong>
+                                Pump Controls
+                            </strong>
+
+                            <span>
+                                Control equipment for safe and
+                                efficient pumping.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-house-flood-water"></i>
+
+                        <div>
+
+                            <strong>
+                                Water Delivery
+                            </strong>
+
+                            <span>
+                                Connections between source,
+                                storage and distribution.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOLAR -->
+
+        <div class="detail-block">
+
+            <div class="detail-sidebar">
+
+                <div class="detail-sidebar-content">
+
+                    <div class="small-number">
+                        SERVICE 02
+                    </div>
+
+                    <h3>
+                        Solar Energy
+                    </h3>
+
+                    <p>
+
+                        Renewable energy systems for reliable
+                        power and water pumping.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-content">
+
+                <h4>
+                    Efficient Solar Systems
+                </h4>
+
+
+                <p>
+
+                    We provide solar solutions for electricity
+                    generation and water pumping applications,
+                    helping customers reduce dependence on
+                    conventional power sources.
+
+                </p>
+
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-solar-panel"></i>
+
+                        <div>
+
+                            <strong>
+                                Solar Panels
+                            </strong>
+
+                            <span>
+                                Supply and installation of solar
+                                photovoltaic systems.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-sun"></i>
+
+                        <div>
+
+                            <strong>
+                                Solar Pumping
+                            </strong>
+
+                            <span>
+                                Solar-powered pumping solutions
+                                for water applications.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-battery-full"></i>
+
+                        <div>
+
+                            <strong>
+                                Energy Storage
+                            </strong>
+
+                            <span>
+                                Battery and backup solutions
+                                for suitable applications.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-plug"></i>
+
+                        <div>
+
+                            <strong>
+                                Inverters
+                            </strong>
+
+                            <span>
+                                Power conversion solutions for
+                                solar installations.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ELECTRICAL -->
+
+        <div class="detail-block">
+
+            <div class="detail-sidebar">
+
+                <div class="detail-sidebar-content">
+
+                    <div class="small-number">
+                        SERVICE 03
+                    </div>
+
+                    <h3>
+                        Electrical Works
+                    </h3>
+
+                    <p>
+
+                        Installation, maintenance and technical
+                        electrical support.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-content">
+
+                <h4>
+                    Safe And Professional Electrical Systems
+                </h4>
+
+
+                <p>
+
+                    Our electrical services cover installation,
+                    maintenance and troubleshooting for
+                    residential, commercial and institutional
+                    environments.
+
+                </p>
+
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+
+                        <div>
+
+                            <strong>
+                                Wiring
+                            </strong>
+
+                            <span>
+                                Electrical wiring and connection
+                                solutions.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                        <div>
+
+                            <strong>
+                                Lighting
+                            </strong>
+
+                            <span>
+                                Indoor, outdoor and project
+                                lighting installations.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                        <div>
+
+                            <strong>
+                                Distribution
+                            </strong>
+
+                            <span>
+                                Distribution and electrical
+                                control equipment.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                        <div>
+
+                            <strong>
+                                Maintenance
+                            </strong>
+
+                            <span>
+                                Inspection, diagnosis and
+                                maintenance services.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOUND -->
+
+        <div class="detail-block">
+
+            <div class="detail-sidebar">
+
+                <div class="detail-sidebar-content">
+
+                    <div class="small-number">
+                        SERVICE 04
+                    </div>
+
+                    <h3>
+                        Sound & Electronics
+                    </h3>
+
+                    <p>
+
+                        Audio systems and electronic equipment
+                        for different environments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-content">
+
+                <h4>
+                    Clear Audio. Professional Installation.
+                </h4>
+
+
+                <p>
+
+                    We provide sound-system solutions for
+                    churches, schools, events, businesses,
+                    conference spaces and other environments.
+
+                </p>
+
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-volume-high"></i>
+
+                        <div>
+
+                            <strong>
+                                Public Address
+                            </strong>
+
+                            <span>
+                                PA systems for announcements,
+                                events and institutions.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-microphone"></i>
+
+                        <div>
+
+                            <strong>
+                                Microphones
+                            </strong>
+
+                            <span>
+                                Wired and wireless microphone
+                                system solutions.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-volume-low"></i>
+
+                        <div>
+
+                            <strong>
+                                Speakers
+                            </strong>
+
+                            <span>
+                                Speaker systems suitable for
+                                different spaces.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        <div>
+
+                            <strong>
+                                Audio Setup
+                            </strong>
+
+                            <span>
+                                Equipment configuration and
+                                system setup.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECT PROCESS
+========================================================= -->
+
+<section class="section process-section">
+
+    <div class="container">
+
+
+        <div class="process-heading">
+
+            <span class="section-label">
+                HOW WE WORK
+            </span>
+
+
+            <h2>
+                From Idea To Completed Project.
+            </h2>
+
+
+            <p>
+
+                We follow a structured approach to understand
+                your requirements and develop the appropriate
+                solution.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Consultation
+                </h3>
+
+                <p>
+                    We discuss your needs and project objectives.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Assessment
+                </h3>
+
+                <p>
+                    We evaluate requirements, site conditions
+                    and technical considerations.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Quotation
+                </h3>
+
+                <p>
+                    We prepare a clear quotation based on the
+                    agreed requirements.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Installation
+                </h3>
+
+                <p>
+                    Equipment and systems are supplied and
+                    installed according to the project.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    05
+                </div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <p>
+                    We provide technical support and maintenance
+                    after completion.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHO WE SERVE
+========================================================= -->
+
+<section class="section coverage-section">
+
+    <div class="container">
+
+
+        <span class="section-label">
+            PROJECT APPLICATIONS
+        </span>
+
+
+        <h2 class="section-title">
+
+            Solutions For Different
+            <span>Customers.</span>
+
+        </h2>
+
+
+        <p class="section-description">
+
+            Our services can be adapted to various environments
+            and project requirements.
+
+        </p>
+
+
+        <div class="coverage-grid">
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-house"></i>
+
+                <h3>
+                    Residential
+                </h3>
+
+                <p>
+
+                    Boreholes, water pumping, solar systems,
+                    electrical works and domestic water
+                    infrastructure.
+
+                </p>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-tractor"></i>
+
+                <h3>
+                    Agriculture
+                </h3>
+
+                <p>
+
+                    Water pumping, solarisation, storage and
+                    irrigation-related technical solutions.
+
+                </p>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>
+                    Commercial
+                </h3>
+
+                <p>
+
+                    Business premises requiring electrical,
+                    water, solar and equipment solutions.
+
+                </p>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-school"></i>
+
+                <h3>
+                    Institutions
+                </h3>
+
+                <p>
+
+                    Schools, churches and organizations requiring
+                    water, energy and sound systems.
+
+                </p>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-industry"></i>
+
+                <h3>
+                    Industrial
+                </h3>
+
+                <p>
+
+                    Technical infrastructure and equipment
+                    solutions for industrial applications.
+
+                </p>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <i class="fa-solid fa-tent"></i>
+
+                <h3>
+                    Events & Public Spaces
+                </h3>
+
+                <p>
+
+                    Sound systems and electrical solutions for
+                    events and public environments.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+
+        <div>
+
+            <span
+                class="section-label"
+                style="color:#ffd05b;">
+
+                READY TO START?
+
+            </span>
+
+
+            <h2>
+                Tell Us About Your Project.
+            </h2>
+
+
+            <p>
+
+                Whether you need a borehole, solar system,
+                electrical installation, water pumping system
+                or sound system, request a quotation from
+                Davanso Solutions Ltd.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="quotations.html"
+            class="btn btn-light">
+
+            Request a Quotation
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <!-- COMPANY -->
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo footer-logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    <strong>
+                        DAVANSO
+                    </strong>
+
+                    <span>
+                        SOLUTIONS LTD
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <p class="footer-description">
+
+                Professional water, solar, electrical and
+                technical solutions for homes, businesses,
+                farms and institutions.
+
+            </p>
+
+
+            <div class="social-links">
+
+                <a href="#"
+                   aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+
+                <a href="#"
+                   aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+
+                <a href="#"
+                   aria-label="TikTok">
+
+                    <i class="fa-brands fa-tiktok"></i>
+
+                </a>
+
+
+                <a href="#"
+                   aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <div>
+
+            <h4>
+                Services
+            </h4>
+
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="services.html">
+                        Borehole Drilling
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Solarisation
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Electrical Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Water Pumping
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Sound Systems
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div>
+
+            <h4>
+                Quick Links
+            </h4>
+
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quotations.html">
+                        Quotations
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+            <h4>
+                Contact Us
+            </h4>
+
+
+            <ul class="contact-list">
+
+                <li>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Kenya
+                    </span>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +254 700 000 000
+                    </span>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        info@davansosolutions.co.ke
+                    </span>
+
+                </li>
+
+
+                <li>
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span>
+                        WhatsApp Available
+                    </span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 Davanso Solutions Ltd.
+                All Rights Reserved.
+            </p>
+
+
+            <p>
+                Water • Solar • Electrical • Technical Solutions
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SCROLL TO TOP
+========================================================= -->
+
+<button
+    class="scroll-top"
+    id="scrollTop"
+    aria-label="Scroll to top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+
+menuToggle.addEventListener(
+    "click",
+    function () {
+
+        mainNav.classList.toggle("show");
+
+        const icon =
+            menuToggle.querySelector("i");
+
+
+        if (
+            mainNav.classList.contains("show")
+        ) {
+
+            icon.classList.remove("fa-bars");
+
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+document
+    .querySelectorAll("#mainNav a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                mainNav.classList.remove("show");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   NAVBAR SHADOW
+========================================================= */
+
+const navbar =
+    document.querySelector(".navbar");
+
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (window.scrollY > 20) {
+
+            navbar.style.boxShadow =
+                "0 8px 30px rgba(5,53,68,.10)";
+
+        } else {
+
+            navbar.style.boxShadow =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+const scrollTop =
+    document.getElementById("scrollTop");
+
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (window.scrollY > 500) {
+
+            scrollTop.classList.add("show");
+
+        } else {
+
+            scrollTop.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+scrollTop.addEventListener(
+    "click",
+    function() {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const animatedElements =
+    document.querySelectorAll(
+        ".service-card, .feature-item, .coverage-card, .process-card"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+animatedElements.forEach(
+    function(element) {
+
+        element.style.opacity = "0";
+
+        element.style.transform =
+            "translateY(25px)";
+
+        element.style.transition =
+            "opacity .6s ease, transform .6s ease";
+
+        observer.observe(element);
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
